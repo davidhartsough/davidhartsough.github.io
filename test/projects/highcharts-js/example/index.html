@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Highcharts JS</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="http://code.highcharts.com/highcharts.js"></script>
+	<script type="text/javascript">
+		$(function () {
+	        $('#container').highcharts({
+	            chart: {
+					type: 'bar'
+				},
+				title: {
+					text: 'Top JavaScript Technologies'
+				},
+				subtitle: {
+					text: 'Source: SimilarTech.com'
+				},
+	            tooltip: {
+	                valueSuffix: '%'
+	            },
+	            xAxis: {
+	                categories: ['jQuery', 'jQuery UI', 'Errorception', 'Bootstrap', 'Modernizr', 'Highslide', 'Backbone.js', 'Highcharts']
+	            },
+	            yAxis: {
+	                title: {
+	                    text: 'Percentage of websites'
+	                }
+	            },
+				series: [{
+					name: 'Top 1M',
+					data: [58.69, 15.99, 1.10, 3.17, 2.74, 0.94, 0.21, 0.20]
+				}, {
+					name: 'Top 100K',
+					data: [61.27, 19.94, 4.04, 3.48, 3.58, 0.80, 0.34, 0.36]
+				}, {
+					name: 'Top 10K',
+					data: [60.20, 21.01, 8.72, 2.99, 4.31, 0.37, 0.55, 0.64]
+				}]
+	        });
+	    });
+	</script>
+</head>
+<body>
+		<div id="container" style="min-width: 400px; width: 95%; height: 700px; margin: 0 auto;"></div>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Highcharts JS</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="http://code.highcharts.com/highcharts.js"></script>
+	<script type="text/javascript">
+		$(function () {
+	        $('#container').highcharts({
+	            chart: {
+					type: 'bar'
+				},
+				title: {
+					text: 'Top JavaScript Technologies'
+				},
+				subtitle: {
+					text: 'Source: SimilarTech.com'
+				},
+	            tooltip: {
+	                valueSuffix: '%'
+	            },
+	            xAxis: {
+	                categories: ['jQuery', 'jQuery UI', 'Errorception', 'Bootstrap', 'Modernizr', 'Highslide', 'Backbone.js', 'Highcharts']
+	            },
+	            yAxis: {
+	                title: {
+	                    text: 'Percentage of websites'
+	                }
+	            },
+				series: [{
+					name: 'Top 1M',
+					data: [58.69, 15.99, 1.10, 3.17, 2.74, 0.94, 0.21, 0.20]
+				}, {
+					name: 'Top 100K',
+					data: [61.27, 19.94, 4.04, 3.48, 3.58, 0.80, 0.34, 0.36]
+				}, {
+					name: 'Top 10K',
+					data: [60.20, 21.01, 8.72, 2.99, 4.31, 0.37, 0.55, 0.64]
+				}]
+	        });
+	    });
+	</script>
+</head>
+<body>
+	<div class="container">
+	<h1>Highcharts JS For Dummies</h1>
+	<p class="lead">This post will walk you through Highcharts JS with basic <a href="#inf">Information</a> and <a href="#imp">Implementation</a></p>
+	<div id="inf">
+		<h2>Information</h2>
+		<p>The following provides a foundational overview and useful information about Highcharts JS and JavaScript libraries in general.</p>
+		<h3>JS libraries</h3>
+		<p>As W3Schools puts it, "JavaScript is the programming language of the web" that "all modern HTML pages are using." It "is one of three languages all web developers must learn," including HTML and CSS. When developing a web page with dynamic content, JavaScript is the primary programming language used to add functionality and behavior, while HTML is the primary markup language to add structure and definition and CSS is the primary stylization language to add layout and design. Being that JavaScript is an extremely successful, free and open source language, many users have created JavaScript libraries which allow for easier development and additional features. According to <a href="http://www.similartech.com/categories/javascript" target="blank">Similar Tech's JavaScript statistics</a>, jQuery, the most popular JavaScript library in use today, is used by over 80% of the most visit websites.</p>
+		<h3>Highcharts JS</h3>
+		<p>Highcharts is a JavaScript library that aids developers in the creation of data visualization through charts. And as the tagline goes on <a href="http://www.highcharts.com/" target="blank">their homepage</a>, Highcharts can "make your data come alive." "Highcharts supports line, spline, area, area-spline, column, bar, pie, scatter, angular gauges, area-range, area-spline-range, column-range, and polar charts." Highcharts boasts that it is "used by tens of thousands of developers and 59 out of the world's 100 largest companies."</p>
+		<h3>Highsoft AS</h3>
+		<p>The company behind Highcharts JS is known as <a href="http://highsoft.com/" target="blank">Highsoft AS</a>, and according to <a href="http://www.similartech.com/categories/javascript" target="blank">Similar Tech's JavaScript statistics</a>, Highsoft AS has three JS libraries in the top JavaScript technologies most used on the web today, including Highslide at #6, Highcharts at #8, and Highstock at #11. At the top, jQuery is #1, and as you'll find out next, Highcharts JS requires a framework like jQuery for installation.</p>
+	</div>
+	<div id="imp">
+		<h2>Implementation</h2>
+		<p>The following are step by step instructions for implementing Highcharts JS into a webpage. The example will create a Highcharts bar chart that uses the data from <a href="http://www.similartech.com/categories/javascript" target="blank">Similar Tech's statistics</a> on today's leading Javascript technologies.</p>
+		<p>To follow along with the implementation, check out the <a href="http://www.highcharts.com/docs" target="blank">Highcharts JS documentation</a>.</p>
+		<h3>Installation</h3>
+		<p>To implement Highcharts JS into your web page, you need to import two files.</p>
+		<p>1) You'll need a JS framework like jQuery, MooTools or Prototype each of which is a widely-used JavaScript library designed to simplify JavaScript programming (another alternative is the Highcharts Standalone Framework). This example will use jQuery: <a href="http://code.jquery.com/jquery-2.1.1.min.js" target="_blank">http://code.jquery.com/jquery-2.1.1.min.js</a></p>
+		<p>2) You'll need the Highcharts JS file itself: <a href="http://code.highcharts.com/highcharts.js" target="_blank">http://code.highcharts.com/highcharts.js</a></p>
+		<p>You have two options for importing the JS files.</p>
+		<h4>Option #1: Their server</h4>
+		<p>You can simply import the two files by referencing directly from the respective servers' CDN:</p>
+		<pre>&lt;script src="http://code.jquery.com/jquery-2.1.1.min.js"&gt;&lt;/script&gt;
+&lt;script src="http://code.highcharts.com/highcharts.js"&gt;&lt;/script&gt;</pre>
+		<h4>Option #2: Your server</h4>
+		<p>You can import the two files by referencing them from a folder on your server. For example, you can create a folder called "js" where you can download both files. Simply open the links above, right-click on both pages in your browser, and select the option, "Save As…" to put them in your "js" folder.</p>
+		<pre>&lt;script src="./js/jquery-2.1.1.min.js"&gt;&lt;/script&gt;
+&lt;script src="./js/highcharts.js"&gt;&lt;/script&gt;</pre>
+		<h3>Demos</h3>
+		<p>The Highcharts JS website features <a href="http://www.highcharts.com/demo" target="blank">some good demos</a> that have buttons below each example, "View Options" and "Edit in JSFiddle," which allow you to see and test the code respectively. The demos page is also a great start to figure out which chart would be best suitable for the data you wish to visualize.</p>
+		<h3>API</h3>
+		<p>Once you've looked at the demos and gotten a feel for the chart options and visual themes, take a look at <a href="http://api.highcharts.com/highcharts" target="blank">the API</a>. Here you can delve down deeper into configuration options for the initial chart setup. For instance, if you click on the "chart: {}" under "$("#container").highcharts({}," you'll see the general chart options like "backgroundColor" and "type." You'll also notice that the carrot drop down has reveal all the options in the left navigation area, which also shows you the default value for each option.</p>
+		<h3>HTML</h3>
+		<p>Now that you have glanced at the documentation, you can start writing the necessary HTML code in the "&lt;body&gt;" of your webpage. Highcharts JS allows you to create a chart within a "&lt;div&gt;" element with a "container" id attribute. Using the "style" attribute or external CSS, you'll want to specify things such as the width, height or margin.</p>
+		<pre>&lt;body&gt;
+	&lt;div id="container" style="min-width: 400px; width: 95%; height: 700px; margin: 0 auto;"&gt;&lt;/div&gt;
+&lt;/body&gt;</pre>
+		<h3>JS</h3>
+		<p>Next, you'll want to write some JavaScript in the &lt;head&gt; of your webpage. Use jQuery to create an anonymous function that references the chart's id and calls the "highcharts()" function from Highcharts JS library using the dot operator.</p>
+		<pre>&lt;script type="text/javascript"&gt;
+	$(function () {
+		$('#container').highcharts({
+		// next bits of code go here!
+		});
+	});
+&lt;/script&gt;</pre>
+		<p>You're gonna wanna look at the API to write more JavaScript where the comments say, "// next bits of code go here!" The first item you looked at earlier was "chart: {}" In here the most important item for you will likely by "type." This example uses "type: 'bar'". Just as the API sidebar exemplifies, implementing this code would look like so:</p>
+		<pre>...
+$('#container').highcharts({
+	chart: {
+		type: 'bar'
+	},
+	// more code yet!
+});
+...</pre>
+		<p>Next, title the chart, "Top JavaScript Technologies," and to give credit to Similar Tech, add a subtitle specifying the source.</p>
+		<pre>...
+title: {
+text: 'Top JavaScript Technologies'
+},
+subtitle: {
+	text: 'Source: SimilarTech.com'
+},
+...</pre>
+		<p>In Highcharts, the tooltip is enabled by default, and because Similar Tech displays percentages in its charts, use the suffix % on the tooltip.</p>
+		<pre>...
+tooltip: {
+	valueSuffix: '%'
+},
+...</pre>
+		<p>And now for the axes! On the x-axis, put each of the top 8 JS technologies into a category.</p>
+		<pre>...
+xAxis: {
+	categories: ['jQuery', 'jQuery UI', 'Errorception', 'Bootstrap', 'Modernizr', 'Highslide', 'Backbone.js', 'Highcharts']
+},
+...</pre>
+		<p>On the y-axis, you'll have the percentages, so title it as such.</p>
+		<pre>...
+yAxis: {
+	title: {
+		text: 'Percentage of websites'
+	}
+},
+...</pre>
+		<p>Finally, Highcharts uses the keyword "series" to allow you to set the data for each category. Also, Similar Tech uses statistics for the "Top 1M," "Top 100K" and "10K" websites, so you'll want to input the data for each of these.</p>
+		<pre>...
+series: [{
+	name: 'Top 1M',
+	data: [58.69, 15.99, 1.10, 3.17, 2.74, 0.94, 0.21, 0.20]
+}, {
+	name: 'Top 100K',
+	data: [61.27, 19.94, 4.04, 3.48, 3.58, 0.80, 0.34, 0.36]
+}, {
+	name: 'Top 10K',
+	data: [60.20, 21.01, 8.72, 2.99, 4.31, 0.37, 0.55, 0.64]
+}]
+...</pre>
+		<br />
+		<h3>TADA!</h3>
+		<p>Like what you see? <a href="./example/" target="_blank">See this example in a new tab!</a></p>
+		<br />
+		<div id="container" style="min-width: 400px; width: 95%; height: 700px; margin: 0 auto;"></div>
+	</div>
+	</div>
+</body>
+</html>
