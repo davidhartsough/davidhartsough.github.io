@@ -180,7 +180,7 @@ h1.title span {
 	height: 45px;
 }
 .ui-collapsible-content p a {
-	padding:0 4px;
+	padding:0px 4px 0px 4px;
 	margin:1px 0;
 	border-radius: 5px;
 	letter-spacing: 0.5px;
@@ -203,7 +203,6 @@ a.ui-collapsible-heading-toggle {
 	color:#FFFFFF;
 	text-shadow:1px 2px #000000;
 	font-family: serif;
-	padding: 0 4px 1px 4px;
 }
 #smallcap {
 	font-variant: small-caps;
@@ -211,6 +210,7 @@ a.ui-collapsible-heading-toggle {
 #wd309 {
 	background-color: #000000;
 	color: #FFFFFF;
+	padding-bottom: 1px;
 }
 #com {
 	color: #C81414;
@@ -221,6 +221,7 @@ a.ui-collapsible-heading-toggle {
 #band {
 	background-color: #2A282B;
 	color: #EEE8D8;
+	padding-bottom: 1px;
 }
 /*
 #html {
@@ -364,4 +365,10 @@ a.ui-collapsible-heading-toggle {
 }
 #beacon .ui-collapsible-heading-toggle.ui-btn::after {
 	background-color: #555;
+}
+a {
+	outline:0 !important;
+	-webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    box-shadow: none !important;
 }
