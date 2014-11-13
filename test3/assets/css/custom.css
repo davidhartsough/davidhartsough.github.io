@@ -220,12 +220,7 @@ a.ui-collapsible-heading-toggle {
 	background-color: #2A282B;
 	color: #EEE8D8;
 }
-#major {
-	color:#2C58CA;
-}
-#interest {
-	color:#00A213;
-}
+/*
 #html {
 	color: #E34E11;
 }
@@ -259,6 +254,7 @@ a.ui-collapsible-heading-toggle {
 #photoshop {
 	color: #53CBF5;
 }
+*/
 #davidhartsough .gradient-background {
 	background: -webkit-radial-gradient(#eee,#111);
 	background: -o-radial-gradient(#eee,#111);
