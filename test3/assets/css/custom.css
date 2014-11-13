@@ -57,8 +57,8 @@ h1.ui-collapsible-heading a.ui-collapsible-heading-toggle {
 	color:rgba(0,0,0,0);
 	text-shadow: none;
 }
-.ui-collapsible-heading-toggle.ui-alt-icon.ui-btn:after, .ui-alt-icon .ui-collapsible-heading-toggle.ui-btn:after {
-	background-color: #fff;
+.ui-collapsible-heading-toggle.ui-btn:after, .ui-collapsible-heading-toggle.ui-btn:after {
+	background-color: #333;
 	bottom:1em;
 }
 .ui-overlay-a, .ui-page-theme-a, .ui-page-theme-a .ui-panel-wrapper {
@@ -142,8 +142,8 @@ h1.title span {
 	display: inline-block;
 }
 .ui-collapsible-heading-toggle:hover {
-	background-color: #ccc !important;
-	border-color: #bbb !important;
+	background-color: #f8f8f8 !important;
+	border-color: #eee !important;
 	color:rgba(0,0,0,0) !important;
 	text-shadow:none !important;
 
@@ -195,13 +195,15 @@ h1.title span {
 }
 a.ui-collapsible-heading-toggle {
 	height:0;
-	background-color: #ddd !important;
+	background-color: #e8e8e8 !important;
+	/*background-color: #ddd !important;*/
 }
 #bradley {
 	background-color: #A00000;
 	color:#FFFFFF;
 	text-shadow:1px 2px #000000;
 	font-family: serif;
+	padding: 0 4px 1px 4px;
 }
 #smallcap {
 	font-variant: small-caps;
@@ -267,11 +269,17 @@ a.ui-collapsible-heading-toggle {
 	background: -moz-radial-gradient(#A4E622,#374D0B);
 	background: radial-gradient(#A4E622,#374D0B);
 }
+#soundinsilence .ui-collapsible-heading-toggle.ui-btn::after {
+	background-color: #557711;
+}
 #time .gradient-background {
 	background: -webkit-radial-gradient(#00FFFF, #6600FF);
 	background: -o-radial-gradient(#00FFFF, #6600FF);
 	background: -moz-radial-gradient(#00FFFF, #6600FF);
 	background: radial-gradient(#00FFFF, #6600FF);
+}
+#time .ui-collapsible-heading-toggle.ui-btn::after {
+	background-color: #0077FF;
 }
 #hashtaghipsterheaven .gradient-background {
 	background: -webkit-radial-gradient(#AD4D4D,#892D2D);
@@ -279,17 +287,28 @@ a.ui-collapsible-heading-toggle {
 	background: -moz-radial-gradient(#AD4D4D,#892D2D);
 	background: radial-gradient(#AD4D4D,#892D2D);
 }
+#hashtaghipsterheaven .ui-collapsible-heading-toggle.ui-btn::after {
+	background-color: #892D2D;
+}
 #mrwhiskers .gradient-background {
 	background: -webkit-radial-gradient(#f8f8f8,#222);
 	background: -o-radial-gradient(#f8f8f8,#222);
 	background: -moz-radial-gradient(#f8f8f8,#222);
 	background: radial-gradient(#f8f8f8,#222);
 }
+
+#mrwhiskers .ui-collapsible-heading-toggle.ui-btn::after {
+	/*background-color: #f8f8f8;*/
+}
+
 #runecasting .gradient-background {
 	background: -webkit-radial-gradient(#6EC6EC, #376987);
 	background: -o-radial-gradient(#6EC6EC, #376987);
 	background: -moz-radial-gradient(#6EC6EC, #376987);
 	background: radial-gradient(#6EC6EC, #376987);
+}
+#runecasting .ui-collapsible-heading-toggle.ui-btn::after {
+	background-color: #467A99;
 }
 #grumpygrandpaloops .gradient-background {
 	background: -webkit-radial-gradient(#5E2F24, #30140D);
@@ -297,11 +316,17 @@ a.ui-collapsible-heading-toggle {
 	background: -moz-radial-gradient(#5E2F24, #30140D);
 	background: radial-gradient(#5E2F24, #30140D);
 }
+#grumpygrandpaloops .ui-collapsible-heading-toggle.ui-btn::after {
+	background-color: #5E2F24;
+}
 #happyballs .gradient-background {
 	background: -webkit-radial-gradient(#fff,#646464);
 	background: -o-radial-gradient(#fff,#646464);
 	background: -moz-radial-gradient(#fff,#646464);
 	background: radial-gradient(#fff,#646464);
+}
+#happyballs .ui-collapsible-heading-toggle.ui-btn::after {
+	background-color: #646464;
 }
 #animationpromo .gradient-background {
 	background: -webkit-radial-gradient(#fff,#000);
@@ -309,11 +334,17 @@ a.ui-collapsible-heading-toggle {
 	background: -moz-radial-gradient(#fff,#000);
 	background: radial-gradient(#fff,#000);
 }
+#animationpromo .ui-collapsible-heading-toggle.ui-btn::after {
+	/*background-color: #fff;*/
+}
 #comingupnext .gradient-background {
 	background: -webkit-radial-gradient(#A7E2FF,#1878C4);
 	background: -o-radial-gradient(#A7E2FF,#1878C4);
 	background: -moz-radial-gradient(#A7E2FF,#1878C4);
 	background: radial-gradient(#A7E2FF,#1878C4);
+}
+#comingupnext .ui-collapsible-heading-toggle.ui-btn::after {
+	background-color: #1878C4;
 }
 #notallblackandwhite .gradient-background {
 	background: -webkit-radial-gradient(#fff,#000);
@@ -321,10 +352,16 @@ a.ui-collapsible-heading-toggle {
 	background: -moz-radial-gradient(#fff,#000);
 	background: radial-gradient(#fff,#000);
 }
+#notallblackandwhite .ui-collapsible-heading-toggle.ui-btn::after {
+	/*background-color: #fff;*/
+}
 #beacon .gradient-background {
 	/*background: radial-gradient(#F4E9DF,#C0954F);*/
 	background: -webkit-radial-gradient(#ddd,#222);
 	background: -o-radial-gradient(#ddd,#222);
 	background: -moz-radial-gradient(#ddd,#222);
 	background: radial-gradient(#ddd,#222);
+}
+#beacon .ui-collapsible-heading-toggle.ui-btn::after {
+	background-color: #555;
 }
