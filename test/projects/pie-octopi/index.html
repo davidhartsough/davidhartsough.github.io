@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Pie&Octopi</title>
+        
+        <!--<link rel="stylesheet" href="./css/jquery.mobile.icons.min.css" />-->
+        <link rel="stylesheet" href="./css/jquery.mobile-1.4.2.min.css" />
+
+        <!--<link rel="stylesheet" href="../../assets/css/normalize.min.css">-->
+        <link rel="stylesheet" href="../../assets/css/bootstrap.min.css" />
+        <!--<link rel="stylesheet" href="./css/bootstrap-theme.min.css" />-->
+
+        <link rel="stylesheet" href="./css/maintheme.min.css" />
+        <!--<link rel="stylesheet" href="./css/main.css">-->
+        <link rel="stylesheet" href="./css/styles.css">
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+        <!--JQuery scripts -->
+        <script src="../../assets/js/jquery-2.1.1.min.js"></script>
+        <script src="./js/jquery.mobile-1.4.2.min.js"></script>
+
+        <script src="../../assets/js/modernizr.js"></script>
+        <script type="text/javascript">
+            window.onload = function() {
+                var loader = document.getElementById('loader');
+                var canvas = document.getElementById('mycanvas');
+                var download = document.getElementById('download');
+                var ctx = canvas.getContext('2d');
+                var mar, nw, nh, nx, ny;
+                var angleInDegrees=0;
+                var stage = 1;
+                var elem=document.getElementById("checkme");
+                var pieoctopi = 1;
+                var fp = 1;
+                var randPie = 1;
+                var randOct = 1;
+                //
+                canvas.width = 670;
+                canvas.height = 670;
+
+                loader.addEventListener('change', loadImage, false);
+
+                function loadImage(e) {
+                    // creates a new filereader object
+                    var fr = new FileReader();
+
+                    fr.onload = function(event) {
+                            // creates a new image object
+                           var img = new Image();
+
+                           // callback for the onload event of the new img 
+                        img.onload = function() {
+                            //
+                            if (img.width > img.height) {
+                                mar = img.width/400;
+                            } else{
+                                mar = img.height/400;
+                            };
+
+                            nw = img.width/mar;
+                            nh = img.height/mar;
+                            nx = canvas.width/2 - nw/2;
+                            ny = canvas.height/2 - nh/2; 
+                            ctx.drawImage(img, nx, ny, nw, nh);
+                            var elem=document.getElementById("checkme");
+                            elem.innerHTML="Is <em>this</em> the picture you were looking for? Click to 2 to proceed!";
+                            stage = 2;
+                        };
+
+                        // setting the source of the image
+                       img.src = event.target.result;
+                    };
+
+                    // tells the file reader where to get the file from
+                    fr.readAsDataURL(e.target.files[0]);
+                }
+
+                var imageObj = new Image();
+                //
+                $("#ui-id-1").click(function() {
+                    if (stage==1) {
+                        elem.innerHTML="";
+                    };
+                });
+                //
+                $("#ui-id-2").click(function() {
+                    if (stage==1) {
+                        elem.innerHTML="You forgot to choose a picture, silly. Go back to 1.";
+                    } else{
+                        elem.innerHTML="";
+                        imageObj.onload = function() {
+                            ctx.drawImage(imageObj, 0, 0);
+                        };
+                        imageObj.src = "./img/cannon-circle-w.png";
+                    };
+                });
+                //
+                $("#ui-id-3").click(function() {
+                    if (stage==1) {
+                        elem.innerHTML="You forgot to choose a picture, silly. Go back to 1.";
+                    } if (stage==2) {
+                        elem.innerHTML="You skipped over the most important part! Go back to 2.";
+                    } if (stage==3) {
+                        elem.innerHTML="";
+                        var imgData = ctx.getImageData(nx, ny, nw, nh);
+                        canvas.width = nw;
+                        canvas.height = nh;
+                        ctx.putImageData(imgData,canvas.width/2 - nw/2,canvas.height/2 - nh/2);
+                        var imgctl = new Image();
+                        var imgctr = new Image();
+                        var imgcbl = new Image();
+                        var imgcbr = new Image();
+                        imgctl.onload = function() {
+                            ctx.drawImage(imgctl, 0, 0);
+                        };
+                        imgctl.src = "./img/corner-top-left.png";
+                        imgctr.onload = function() {
+                            ctx.drawImage(imgctr, canvas.width-70, 0);
+                        };
+                        imgctr.src = "./img/corner-top-right.png";
+                        imgcbl.onload = function() {
+                            ctx.drawImage(imgcbl, 0, canvas.height-70);
+                        };
+                        imgcbl.src = "./img/corner-bottom-left.png";
+                        imgcbr.onload = function() {
+                            ctx.drawImage(imgcbr, canvas.width-70, canvas.height-70);
+                        };
+                        imgcbr.src = "./img/corner-bottom-right.png";
+                        stage = 4;
+                    };
+                });
+                //
+                $("#rotateccw").click(function() {
+                    angleInDegrees-=20;
+                    drawRotated(angleInDegrees);
+                });
+                $("#rotatecw").click(function() {
+                    angleInDegrees+=20;
+                    drawRotated(angleInDegrees);
+                });
+                $("#radio-choice-h-2a").click(function() {
+                  pieoctopi = 1;
+                });
+                $("#radio-choice-h-2b").click(function() {
+                  pieoctopi = 2;
+                });
+                function drawRotated(degrees) {
+                    ctx.save();
+                    ctx.translate(canvas.width/2,canvas.height/2);
+                    ctx.rotate(degrees*Math.PI/180);
+                    ctx.drawImage(imageObj,-imageObj.width/2,-imageObj.width/2);
+                    ctx.restore();
+                }
+                
+                
+                var pie1 = new Image();
+                var pie2 = new Image();
+                var octopus1 = new Image();
+                var octopus2 = new Image();
+                
+                pie1.src = './img/splatpie1f.png';
+                pie2.src = './img/splatpie2f.png';
+                octopus1.src = './img/octopus1f.png';
+                octopus2.src = './img/octopus2f.png';
+                
+                $("#firebtn").click(function() {
+                    fp = (42*($("#slider-1").val())-1);
+                    randPie = Math.floor((Math.random()*2)+1);
+                    randOct = Math.floor((Math.random()*2)+1);
+
+                    if (pieoctopi == 1) {
+                      if (randPie == 1) {
+                        ctx.save();
+                        ctx.translate(canvas.width/2,canvas.height/2);
+                        ctx.rotate(angleInDegrees*Math.PI/180);
+                        ctx.drawImage(pie1,-335+fp,-335);
+                        ctx.restore();
+                      };
+                      if (randPie == 2) {
+                        ctx.save();
+                        ctx.translate(canvas.width/2,canvas.height/2);
+                        ctx.rotate(angleInDegrees*Math.PI/180);
+                        ctx.drawImage(pie2,-335+fp,-335);
+                        ctx.restore();
+                      };
+                    };
+                    if (pieoctopi == 2) {
+                      if (randOct == 1) {
+                        ctx.save();
+                        ctx.translate(canvas.width/2,canvas.height/2);
+                        ctx.rotate(angleInDegrees*Math.PI/180);
+                        ctx.drawImage(octopus1,-335+fp,-335);
+                        ctx.restore();
+                      };
+                      if (randOct == 2) {
+                        ctx.save();
+                        ctx.translate(canvas.width/2,canvas.height/2);
+                        ctx.rotate(angleInDegrees*Math.PI/180);
+                        ctx.drawImage(octopus2,-335+fp,-335);
+                        ctx.restore();
+                      };
+                    };
+
+                    elem.innerHTML="When you've added all your heart desires and your creation is complete, click 3.";
+                    if (stage == 2) {
+                      stage = 3;
+                    };
+                    
+                });
+                
+
+
+            }
+
+        </script>
+        
+    </head>
+    <body>
+      <header>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    
+        <h1 class="text-center">Pie&Octopi</h1>
+
+        <h3 class="text-center">Making breath-taking masterpieces from your pictures is now as easy as 1, 2, 3!</h3>
+
+        <p id="checkme" class="text-center"></p>
+
+          <div data-role="tabs" id="tabs">
+            <div data-role="navbar">
+              <ul>
+                <li><a href="#one" data-ajax="false" class="ui-btn-active ui-btn ui-tabs-anchor ui-link ui-corner-all" id="ui-id-1"><h3>1</h3></a></li>
+                <li><a href="#two" data-ajax="false" class="ui-btn ui-corner-all ui-tabs-anchor" id="ui-id-2"><h3>2</h3></a></li>
+                <li><a href="#three" data-ajax="false" class="ui-btn ui-corner-all ui-tabs-anchor" id="ui-id-3"><h3>3</h3></a></li>
+              </ul>
+            </div>
+            <div id="one">
+                <h4 class="text-center">First, choose a picture you want to transform into a lovely work of art.</h4>
+                <form>
+                    <input type="file" id="loader" name="loader" />
+                </form>
+            </div>
+            <div id="two">
+                <h4 class="text-center" id="checktwo">Second, add pies and an octopus or seven to your picture using the handy cannon.</h4>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="lead">Rotate: </p>
+                                <div class="dil" data-role="controlgroup" data-type="horizontal">
+                                    <button class="ui-btn ui-corner-all" id="rotateccw"><img src="./img/ccw-lg.png" alt="counterclockwise" style="width:35px; height:35px;"></button>
+                                    <button class="ui-btn ui-corner-all" id="rotatecw"><img src="./img/cw-lg.png" alt="clockwise" style="width:35px; height:35px;"></button>
+                                </div>
+                            </div>
+                            <div class="col-md-1"><p class="lead dbl">Power: </p></div>
+                            <div class="col-md-2">
+                                <input type="range" name="slider-1" data-highlight="true" id="slider-1" min="1" max="10" value="1" data-popup-enabled="true" style="display: none;">
+                            </div>
+                            <div class="col-md-3">
+                                <p class="lead">Ammo: </p>
+                                <div class="dil" data-role="controlgroup" data-type="horizontal">
+                                    <input type="radio" name="radio-choice-h-2" id="radio-choice-h-2a" value="pie" checked="checked">
+                                <label for="radio-choice-h-2a"><img src="./img/pie-lg.png" alt="pie" style="width:35px; height:35px;"></label>
+                                    <input type="radio" name="radio-choice-h-2" id="radio-choice-h-2b" value="octopi">
+                                <label for="radio-choice-h-2b"><img src="./img/octopi-lg.png" alt="octopi" style="width:35px; height:35px;" /></label>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <button class="ui-btn ui-corner-all fire" id="firebtn"><img src="./img/cannon-lg.png" alt="cannon" style="width:35px; height:35px;" />  FIRE!</button>
+                            </div>
+                        </div>
+                    </div>
+                
+            </div>
+            <div id="three">
+                <h4 class="text-center">Third, feel the satisfaction that can only be felt after successfully creating your magnum opus.</h4>
+                <p class="text-center"><a class="ui-btn ui-corner-all ui-shadow ui-btn-inline" onclick="this.setAttribute('href', mycanvas.toDataURL());" download="MagnumOpus.png" href="#" target="_blank" id="download">Download</a></p>
+            </div>
+          </div>
+          
+          <hr/>
+      
+      </header>
+    
+        <p class="text-center" style="margin-bottom:60px;">
+            <canvas id="mycanvas">
+
+            </canvas>
+        </p>
+<!--
+          <hr/>
+          <div class="bottom">
+
+    <blockquote class="blockquote-reverse">
+      <p class="text-center">If I could have gone back and done anything differently, I would have added a lot more pie and octopi to <em>The Last Supper</em>.</p>
+      <footer>Leonardo da Vinci</footer>
+    </blockquote>
+          </div>
+
+        <script src="./js/plugins.js"></script>
+-->
+        <script src="../../assets/js/main.js"></script>
+
+    </body>
+</html>

@@ -1,0 +1,80 @@
+div.dil {
+    display: inline;
+}
+.ui-slider-track {
+    border-width: 0;
+}
+header {
+    background-color: #CEB58F;
+    /*background-color: #9B7844;*/
+    margin-top: -20px;
+    padding-top: 24px;
+}
+div.bottom {
+    background-color: #9B7844;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    margin-top: -17px;
+}
+.ui-btn, label.ui-btn {
+    border-width: 0;
+}
+.ui-controlgroup-horizontal .ui-controlgroup-controls .ui-btn.ui-last-child {
+    border-width: 0;
+}
+.ui-radio .ui-btn.ui-radio-on {
+    border-width: 0; 
+}
+p.lead {
+    display: inline;
+}
+p.lead.dbl {
+    display: block;
+    margin-top: 12px;
+}
+button.fire {
+    margin: 0;
+    height: 59px;
+}
+div.ui-slider {
+    margin-top: 1em;
+}
+.ui-input-text, .ui-input-search {
+    width: 300px;
+    margin: 1em auto;
+    padding: 5px;
+}
+.ui-slider-track {
+    margin-left: 30px;
+}
+
+h4 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.ui-overlay-a, .ui-page-theme-a, .ui-page-theme-a .ui-panel-wrapper {
+    background-color: #966010;
+    color: #303030;
+    text-shadow: none;
+}
+#checkme {
+    font-size:20px;
+}
+#tabs {
+    /*height: 220px;*/
+}
+#download {
+    width: 300px;
+}
+#mycanvas {
+    background-color: white; 
+    border-radius: 15px; 
+    border: 1px solid #aaa;
+}
+footer {
+    margin-right: 150px;
+}
+.ui-btn-corner-all, .ui-btn.ui-corner-all, .ui-slider-track.ui-corner-all, .ui-flipswitch.ui-corner-all, .ui-li-count {
+    border-radius: .5em;
+}
