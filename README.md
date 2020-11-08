@@ -1,5 +1,5 @@
-# README
+# David Hartsough
 
-Hey there, thanks for reading me.
+That's my name.
 
-Sorry about yelling this filename in all caps.
+Here's the code for the "landing page" of my personal site.
