@@ -1,19 +1,17 @@
-html,
-body {
-  box-sizing: border-box;
-  min-height: 100%;
-  background-color: #202124;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Helvetica Neue", Arial, sans-serif;
-  -webkit-text-size-adjust: 100%;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  margin: 0;
-}
 *,
 *::before,
 *::after {
-  box-sizing: inherit;
+  box-sizing: border-box;
+}
+html,
+body {
+  min-height: 100%;
+  background-color: #202124;
+}
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  margin: 0;
 }
 .bg,
 .pattern,
@@ -115,19 +113,6 @@ a {
 .nav-link:focus {
   background-color: rgba(255, 255, 255, 0.24);
   border: 1px solid #e8eaed;
-}
-footer {
-  display: flex;
-  justify-content: center;
-}
-.icon-link {
-  fill: #fff;
-  max-width: 3rem;
-  opacity: 0.86;
-  margin: 0 1.5rem;
-}
-.icon-link:hover {
-  opacity: 1;
 }
 @media (max-width: 512px) {
   main {
