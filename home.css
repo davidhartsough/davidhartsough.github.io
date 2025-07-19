@@ -1,31 +1,129 @@
 header {
-  padding-top: 4rem;
+  padding: 4rem 0 0.25rem;
+}
+header p {
+  font-size: 1rem;
 }
 footer {
   padding-bottom: 1rem;
-  letter-spacing: normal;
-}
-footer p {
-  font-size: 1rem;
-}
-h2 {
-  line-height: 1.25;
-  font-weight: 500;
-  font-size: 1.75rem;
-  margin: 0 0 0.5rem;
-}
-ul {
-  list-style-image: none;
-  list-style-position: outside;
-  margin: 0.5rem 0 1.5rem 1.125rem;
-  padding: 0;
-}
-li {
-  margin-bottom: 0.25rem;
-}
-ul li {
-  padding-left: 0;
+  text-align: center;
 }
 strong {
   font-weight: 600;
+}
+small {
+  font-size: 0.875rem;
+  font-weight: 200;
+  letter-spacing: -0.25px;
+}
+.life-philosophy-link {
+  display: inline-block;
+  background-color: hsla(208deg 16% 96% / 90%);
+  color: hsl(208deg 4% 8% / 98%);
+  border-radius: 1.5rem;
+  border: 0.125rem solid hsl(208deg 16% 98% / 32%);
+  padding: 5px 1rem;
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1rem;
+  letter-spacing: -0.25px;
+  transform: scale(1);
+  cursor: pointer;
+  opacity: 0.9;
+  transition: all 0.2s;
+}
+.life-philosophy-link:hover,
+.life-philosophy-link:focus {
+  transform: scale(1.05);
+  opacity: 1;
+}
+#aka {
+  text-transform: lowercase;
+  font-variant: small-caps;
+}
+@media (width <= 20.75rem) {
+  #aka {
+    font-size: 1rem;
+    text-transform: uppercase;
+  }
+}
+@media (22.75rem < width < 25rem) {
+  header p {
+    font-size: 1.125rem;
+  }
+  small {
+    font-size: 1rem;
+    letter-spacing: normal;
+  }
+}
+@media (22.75rem < width < 24rem) {
+  em {
+    font-size: 1rem;
+  }
+}
+@media (20.75rem < width <= 26.5rem) {
+  #br1,
+  #br2,
+  #br3 {
+    display: none;
+  }
+  em {
+    letter-spacing: normal;
+  }
+}
+@media (26.5rem < width < 28rem) {
+  #br2,
+  #br3 {
+    display: none;
+  }
+}
+@media (width >= 28rem) {
+  #br2,
+  #br3 {
+    display: none;
+  }
+}
+@media (20.75rem >= width) {
+  #br1,
+  #br3 {
+    display: none;
+  }
+}
+@media (20.75rem < width < 22rem) {
+  em {
+    font-size: 15px;
+  }
+}
+@media (25rem <= width <= 27.75rem) {
+  header {
+    letter-spacing: normal;
+  }
+}
+@media (25rem <= width <= 26.5rem) {
+  header p {
+    font-size: 15px;
+  }
+  strong {
+    font-weight: 500;
+  }
+  #br1 {
+    display: block;
+  }
+}
+@media (width > 28rem) {
+  small {
+    font-size: 1rem;
+    letter-spacing: -0.1px;
+  }
+}
+@media (width > 28.75rem) {
+  header p {
+    font-size: 1rem;
+  }
+}
+@media (width > 31.25rem) {
+  header p {
+    font-size: 1.125rem;
+  }
 }
