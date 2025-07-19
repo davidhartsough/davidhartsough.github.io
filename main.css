@@ -104,6 +104,13 @@ a {
   text-transform: uppercase;
   letter-spacing: 0.125rem;
   font-weight: 500;
+  transform: scale(1);
+  transition: all 0.2s;
+}
+.nav-link:hover,
+.nav-link:active,
+.nav-link:focus {
+  transform: scale(1.05);
 }
 .nav-link:hover {
   background-color: rgba(255, 255, 255, 0.12);
